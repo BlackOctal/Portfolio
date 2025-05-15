@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { portfolioData } from './data/portfolioData';
+import Footer from './components/Footer';
 import './App.css';
 
 // Replace with your actual Web3Forms access key
@@ -23,6 +24,7 @@ function App() {
       <Skills data={portfolioData.skills} />
       <Projects data={portfolioData.projects} />
       <Contact webFormAccessKey={WEB3FORMS_ACCESS_KEY} />
+      <Footer />
     </div>
   );
 }

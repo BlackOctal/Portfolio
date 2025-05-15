@@ -1,11 +1,33 @@
-// Contact.js
+// Contact.js - Enhanced phone input with formatting
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
 
 const Contact = ({ webFormAccessKey }) => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    phone: '',
+    message: '' 
+  });
   const [status, setStatus] = useState('');
+  
+  // Format phone number as user types
+  const formatPhoneNumber = (value) => {
+    const phoneNumber = value.replace(/\D/g, '');
+    const phoneNumberLength = phoneNumber.length;
+    
+    if (phoneNumberLength < 4) return phoneNumber;
+    if (phoneNumberLength < 7) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    }
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+  };
+  
+  const handlePhoneChange = (e) => {
+    const formattedNumber = formatPhoneNumber(e.target.value);
+    setFormData({ ...formData, phone: formattedNumber });
+  };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +48,7 @@ const Contact = ({ webFormAccessKey }) => {
       
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', message: '' });
         setTimeout(() => setStatus(''), 3000);
       } else {
         setStatus('error');
@@ -67,6 +89,17 @@ const Contact = ({ webFormAccessKey }) => {
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className={styles.input}
               required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number"
+              value={formData.phone}
+              onChange={handlePhoneChange}
+              className={styles.input}
+              maxLength="14"
             />
           </div>
           <div className={styles.formGroup}>

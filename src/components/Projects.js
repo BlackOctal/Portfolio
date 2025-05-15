@@ -146,14 +146,14 @@ const Projects = ({ data }) => {
                   ))}
                 </div>
                 <div className={styles.projectLinks}>
-                  <a
+                  {/* <a
                     href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.projectLink}
                   >
                     <FaExternalLinkAlt /> Demo
-                  </a>
+                  </a> */}
                   <a
                     href={project.githubLink}
                     target="_blank"

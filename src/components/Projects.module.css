@@ -48,7 +48,7 @@
   }
   
   .filterButton.active {
-    background-color: #3b82f6;
+    background-color: #8b5cf6;
     color: white;
   }
   
@@ -128,7 +128,7 @@
   
   .expandButton {
     padding: 0.75rem 1.5rem;
-    background-color: #3b82f6;
+    background-color: #8b5cf6;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -141,7 +141,7 @@
   }
   
   .expandButton:hover {
-    background-color: #2563eb;
+    background-color: #8b5cf6;
   }
   
   /* Project content */
@@ -185,13 +185,13 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #60a5fa;
+    color: #8b5cf6;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   .projectLink:hover {
-    color: #93c5fd;
+    color: #ffffff;
   }
   
   /* Modal styles */
@@ -280,7 +280,7 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background-color: #3b82f6;
+    background-color: #8b5cf6;
     color: white;
     text-decoration: none;
     border-radius: 0.5rem;

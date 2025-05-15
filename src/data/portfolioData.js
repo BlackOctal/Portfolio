@@ -2,11 +2,11 @@
 export const portfolioData = {
     personal: {
       name: "Janidu Himansa Welarathna",
-      position: "Undergraduate student at University of BedFordshire (UK) (SLIIT)",
+      position: "Undergraduate Student at University of BedFordshire (UK) (SLIIT)",
       resumeLink: "/resume.pdf"
     },
     about: {
-        photo: "/public/logo192.png",
+        photo: "/janidu.png",
         description: `Hi! I'm Janidu Himansa Welarathna, an undergraduate student at the University of Bedfordshire, UK. 
       I'm a proactive and highly passionate programmer with a strong interest in both research and software development.
       
@@ -53,7 +53,7 @@ export const portfolioData = {
         id: 2,
         title: "Eye Site",
         description: "Developed a MERN stack application for optical shops, allowing users to browse products, schedule appointments, and provide feedback. Admins can manage operations like products, appointments, employees, suppliers, and generate monthly reports.",
-        tech: ["React", "Mongo", "Node.js","Express"],
+        tech: ["React", "MongoDB", "Node.js","Express"],
         image: "/api/placeholder/400/300",
         demoLink: "#",
         githubLink: "https://github.com/BlackOctal/eye-site-master"
@@ -98,9 +98,9 @@ export const portfolioData = {
     ],
     social: {
       github: "https://github.com/BlackOctal",
-      linkedin: "www.linkedin.com/in/janidu-welarathna-101611238",
+      linkedin: "https://www.linkedin.com/in/janidu-welarathna-101611238/",
       medium: "https://medium.com/@janiduhwelarathna",
       whatsapp: "https://wa.me/+94705503304",
-      google: "mailto:janiduhwelarathna@gmail.com.com"
+      google: "mailto:janiduhwelarathna@gmail.com"
     }
   };
