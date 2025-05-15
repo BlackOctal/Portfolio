@@ -6,7 +6,7 @@ export const portfolioData = {
       resumeLink: "/resume.pdf"
     },
     about: {
-        photo: "/janidu.png",
+        photo: "/Janidu.png",
         description: `Hi! I'm Janidu Himansa Welarathna, an undergraduate student at the University of Bedfordshire, UK. 
       I'm a proactive and highly passionate programmer with a strong interest in both research and software development.
       
