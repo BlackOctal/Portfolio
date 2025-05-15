@@ -1,0 +1,315 @@
+/* Projects.module.css - With image placeholder styling */
+.section {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  /* Filter buttons */
+  .filterContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .filterButton {
+    padding: 0.5rem 1rem;
+    background-color: #374151;
+    color: #e5e7eb;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+  }
+  
+  .filterButton:hover {
+    background-color: #4b5563;
+  }
+  
+  .filterButton.active {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  /* Projects grid */
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .projectCard {
+    background-color: #1f2937;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .projectCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Image placeholder for when images are not loaded */
+  .imagePlaceholder {
+    position: relative;
+    overflow: hidden;
+    height: 12rem;
+    background-color: #111827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #374151;
+  }
+  
+  .imagePlaceholder::before {
+    content: "Image Coming Soon";
+    color: #6b7280;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Image container (commented out but keeping styles for later) */
+  .imageContainer {
+    position: relative;
+    overflow: hidden;
+    height: 12rem;
+  }
+  
+  .projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .projectCard:hover .projectImage {
+    transform: scale(1.05);
+  }
+  
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .projectCard:hover .imageOverlay {
+    opacity: 1;
+  }
+  
+  .expandButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .expandButton:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Project content */
+  .projectContent {
+    padding: 1.5rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .projectDescription {
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .techTag {
+    padding: 0.25rem 0.75rem;
+    background-color: #374151;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: #e5e7eb;
+  }
+  
+  .projectLinks {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .projectLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .projectLink:hover {
+    color: #93c5fd;
+  }
+  
+  /* Modal styles */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  .modalContent {
+    position: relative;
+    background-color: #1f2937;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-color: #374151;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .closeButton:hover {
+    background-color: #4b5563;
+  }
+  
+  .modalImage {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modalTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .modalDescription {
+    font-size: 1.125rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .detailedDescription {
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .modalLinks {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .modalLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modalLink:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 640px) {
+    .projectsGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .title {
+      font-size: 2rem;
+    }
+    
+    .filterContainer {
+      justify-content: center;
+    }
+    
+    .modalContent {
+      padding: 1rem;
+    }
+    
+    .modalTitle {
+      font-size: 1.5rem;
+    }
+  }

@@ -1,0 +1,8 @@
+/* App.css */
+.app {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
