@@ -11,8 +11,7 @@ import { portfolioData } from './data/portfolioData';
 import Footer from './components/Footer';
 import './App.css';
 
-// Replace with your actual Web3Forms access key
-const WEB3FORMS_ACCESS_KEY = '30373a95-553e-4451-b2a7-78697f6a340f';
+const WEB3FORMS_ACCESS_KEY = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
 
 function App() {
   return (

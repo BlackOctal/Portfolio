@@ -1,4 +1,3 @@
-// TextDecrypt.js
 import React, { useState, useEffect } from 'react';
 import styles from './Hero.module.css';
 

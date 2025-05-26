@@ -1,4 +1,3 @@
-// Starfield.js
 import React, { useRef, useEffect } from 'react';
 import styles from './Starfield.module.css';
 

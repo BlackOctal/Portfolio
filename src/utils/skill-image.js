@@ -1,4 +1,4 @@
-// src/utils/skill-image.js
+
 export const skillsImage = (skill) => {
     const skillID = skill.toLowerCase();
     const basePath = '/svg/skills/';

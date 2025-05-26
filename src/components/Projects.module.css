@@ -1,5 +1,4 @@
-/* Projects.module.css - With image placeholder styling */
-.section {
+ .section {
     position: relative;
     z-index: 10;
     min-height: 100vh;
@@ -71,7 +70,6 @@
     transform: translateY(-5px);
   }
   
-  /* Image placeholder for when images are not loaded */
   .imagePlaceholder {
     position: relative;
     overflow: hidden;
@@ -89,8 +87,7 @@
     font-size: 1rem;
     font-weight: 500;
   }
-  
-  /* Image container (commented out but keeping styles for later) */
+
   .imageContainer {
     position: relative;
     overflow: hidden;
@@ -144,7 +141,6 @@
     background-color: #8b5cf6;
   }
   
-  /* Project content */
   .projectContent {
     padding: 1.5rem;
   }
@@ -194,7 +190,6 @@
     color: #ffffff;
   }
   
-  /* Modal styles */
   .modalOverlay {
     position: fixed;
     top: 0;

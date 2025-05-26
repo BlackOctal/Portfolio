@@ -1,4 +1,3 @@
-// Skills.js - Alternative matching your structure
 import React from 'react';
 import Marquee from 'react-fast-marquee';
 import { skillsData } from '../utils/data/skills';

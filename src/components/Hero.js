@@ -1,4 +1,3 @@
-// Hero.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaMedium, FaWhatsapp, FaGoogle, FaDownload } from 'react-icons/fa';

@@ -1,4 +1,3 @@
-// Contact.js - Enhanced phone input with formatting
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Contact.module.css';
@@ -12,7 +11,6 @@ const Contact = ({ webFormAccessKey }) => {
   });
   const [status, setStatus] = useState('');
   
-  // Format phone number as user types
   const formatPhoneNumber = (value) => {
     const phoneNumber = value.replace(/\D/g, '');
     const phoneNumberLength = phoneNumber.length;

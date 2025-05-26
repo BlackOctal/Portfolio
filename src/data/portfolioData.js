@@ -1,4 +1,3 @@
-// portfolioData.js - Central data file
 export const portfolioData = {
     personal: {
       name: "Janidu Himansa Welarathna",

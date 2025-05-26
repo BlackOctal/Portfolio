@@ -1,4 +1,3 @@
-// Projects.js - Enhanced version with image parts commented out
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaGithub, FaExpand } from 'react-icons/fa';
@@ -169,7 +168,6 @@ const Projects = ({ data }) => {
         </div>
       </div>
       
-      {/* Project Modal */}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}

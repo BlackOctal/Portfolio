@@ -1,4 +1,3 @@
-// About.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './About.module.css';
