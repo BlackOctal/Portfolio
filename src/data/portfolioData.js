@@ -2,7 +2,7 @@ export const portfolioData = {
     personal: {
       name: "Janidu Himansa Welarathna",
       position: "Undergraduate Student at University of BedFordshire (UK) (SLIIT)",
-      resumeLink: "/resume.pdf"
+      resumeLink: "/JaniduWelarathna.pdf"
     },
     about: {
         photo: "/Janidu.png",
