@@ -1,135 +1,168 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaPaperPlane, FaEnvelope, FaUser, FaPhone, FaCommentDots } from 'react-icons/fa';
 import styles from './Contact.module.css';
 
-const Contact = ({ webFormAccessKey }) => {
-  const [formData, setFormData] = useState({ 
-    name: '', 
-    email: '', 
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
     phone: '',
-    message: '' 
+    message: ''
   });
-  const [status, setStatus] = useState('');
-  
+  const [status, setStatus] = useState(''); // idle | sending | success | error
+
   const formatPhoneNumber = (value) => {
     const phoneNumber = value.replace(/\D/g, '');
-    const phoneNumberLength = phoneNumber.length;
-    
-    if (phoneNumberLength < 4) return phoneNumber;
-    if (phoneNumberLength < 7) {
+    if (phoneNumber.length < 4) return phoneNumber;
+    if (phoneNumber.length < 7) {
       return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
     }
     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
   };
-  
-  const handlePhoneChange = (e) => {
-    const formattedNumber = formatPhoneNumber(e.target.value);
-    setFormData({ ...formData, phone: formattedNumber });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'phone') {
+      setFormData({ ...formData, phone: formatPhoneNumber(value) });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    
+
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // POST to your serverless API route (see api/send-email.js)
+      const response = await fetch('/api/send-email', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: webFormAccessKey,
-          ...formData
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
-      
-      if (response.ok) {
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
-        setTimeout(() => setStatus(''), 3000);
+        setTimeout(() => setStatus(''), 4000);
       } else {
         setStatus('error');
+        setTimeout(() => setStatus(''), 4000);
       }
-    } catch (error) {
+    } catch (err) {
       setStatus('error');
+      setTimeout(() => setStatus(''), 4000);
     }
   };
-  
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Contact Me</h2>
-        <motion.form
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          onSubmit={handleSubmit}
-          className={styles.form}
+          transition={{ duration: 0.6 }}
+          className={styles.inner}
         >
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className={styles.input}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className={styles.input}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Your Phone Number"
-              value={formData.phone}
-              onChange={handlePhoneChange}
-              className={styles.input}
-              maxLength="14"
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="5"
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className={styles.textarea}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={status === 'sending'}
-            className={styles.submitButton}
-          >
-            {status === 'sending' ? 'Sending...' : 'Send Message'}
-          </button>
-          
-          {status === 'success' && (
-            <p className={`${styles.statusMessage} ${styles.successMessage}`}>
-              Message sent successfully!
-            </p>
-          )}
-          {status === 'error' && (
-            <p className={`${styles.statusMessage} ${styles.errorMessage}`}>
-              Error sending message. Please try again.
-            </p>
-          )}
-        </motion.form>
+          <h2 className={styles.title}>Get In Touch</h2>
+          <p className={styles.subtitle}>
+            Open to research collaborations, engineering roles, and interesting conversations.
+          </p>
+
+          <form onSubmit={handleSubmit} className={styles.form}>
+            {/* Name */}
+            <div className={styles.inputGroup}>
+              <FaUser className={styles.inputIcon} />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+            </div>
+
+            {/* Email */}
+            <div className={styles.inputGroup}>
+              <FaEnvelope className={styles.inputIcon} />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                className={styles.input}
+                required
+              />
+            </div>
+
+            {/* Phone */}
+            <div className={styles.inputGroup}>
+              <FaPhone className={styles.inputIcon} />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number (optional)"
+                value={formData.phone}
+                onChange={handleChange}
+                className={styles.input}
+                maxLength="14"
+              />
+            </div>
+
+            {/* Message */}
+            <div className={`${styles.inputGroup} ${styles.textareaGroup}`}>
+              <FaCommentDots className={`${styles.inputIcon} ${styles.textareaIcon}`} />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="6"
+                value={formData.message}
+                onChange={handleChange}
+                className={`${styles.input} ${styles.textarea}`}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className={styles.submitButton}
+            >
+              {status === 'sending' ? (
+                <span className={styles.sending}>Sending…</span>
+              ) : (
+                <>
+                  <FaPaperPlane /> Send Message
+                </>
+              )}
+            </button>
+
+            {status === 'success' && (
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`${styles.statusMessage} ${styles.successMessage}`}
+              >
+                ✓ Message sent! I'll get back to you soon.
+              </motion.p>
+            )}
+            {status === 'error' && (
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`${styles.statusMessage} ${styles.errorMessage}`}
+              >
+                ✗ Something went wrong. Please try again or email me directly.
+              </motion.p>
+            )}
+          </form>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,100 +1,122 @@
 export const portfolioData = {
     personal: {
       name: "Janidu Himansa Welarathna",
-      position: "Undergraduate Student at University of BedFordshire (UK) (SLIIT)",
+      position: "AI/ML Researcher  ·  Full Stack Engineer  ·  LLM Developer",
       resumeLink: "/JaniduWelarathna.pdf"
     },
     about: {
-        photo: "/Janidu.png",
-        description: `Hi! I'm Janidu Himansa Welarathna, an undergraduate student at the University of Bedfordshire, UK. 
-      I'm a proactive and highly passionate programmer with a strong interest in both research and software development.
-      
-      I dedicate myself to learning and growing every day, constantly building new skills to stay in sync with the latest 
-      industry trends and best practices. This mindset helps me contribute effectively to any project or team I'm part of.
-      
-      Alongside my technical strengths, I’m known for my excellent interpersonal skills, which allow me to collaborate 
-      smoothly and thrive in diverse team environments. Whether it’s writing code, solving complex problems, or exploring 
-      new ideas through research, I always aim to deliver high-quality work and make a meaningful impact.
-      
-      I’m driven by challenges that push me to grow, innovate, and make a difference in the tech world.`
+      photo: "/Janidu.png",
+      description: `I'm Janidu Himansa Welarathna — a Software Engineering graduate (BSc Hons, Second Class Upper) from the University of Bedfordshire (UK), with 1+ year of industry experience in full stack development and a growing track record in AI/ML research.
+
+I build production grade applications across the full stack using React, Next.js, .NET, and cloud platforms (AWS, Azure). On the research side, I specialise in Explainable AI, NLP-based mental health detection, and Large Language Models with two published papers at international computing conferences.
+
+I thrive at the intersection of engineering and research writing code that ships and ideas that matter. Whether it's fine-tuning an LLM pipeline, architecting a scalable REST API, or presenting research findings at a conference, I bring the same rigour and curiosity to every challenge.
+
+Hackathon finalist. Published researcher. Lifelong builder.`
+    },
+
+    education: [
+      {
+        id: 1,
+        year: "2022 – 2026",
+        title: "BSc (Hons) Software Engineering",
+        institution: "University of Bedfordshire (UK) via SLIIT City Uni",
+        grade: "Second Class, Upper Division",
+        description: "Focused on software development, AI/ML, cloud computing, and research methodologies. Published two papers in international conferences during this period."
       },
-      
-    experience: [
-        {
-            id: 1,
-            year: "2022 - Present",
-            title: "Undergraduate Student",
-            company: "University of Bedfordshire (UK) (SLIIT)",
-            description: "Currently pursuing a degree in Software Engineering, focusing on software development and research."
-        },
-          
       {
         id: 2,
-        year: "2024 - 2025",
-        title: "Junior Full Stack Developer",
-        company: "SoftEdgeLab",
-        description: "Contributed to frontend and backend development, research and development, and documentation for the Noctawalk project — a nightlife experience web application."
+        year: "2022 – 2024",
+        title: "Higher Diploma in Information Technology",
+        institution: "SLIIT City Uni, Colombo, Sri Lanka",
+        grade: "Distinction",
+        description: "Foundational studies in software engineering, databases, web development, and computer science principles."
+      }
+    ],
+
+    experience: [
+      {
+        id: 1,
+        year: "2025 – 2026",
+        title: "Associate Software Engineer",
+        company: "VFullstack (PVT) LTD",
+        description: "Developed and delivered full stack features using React and .NET across the full SDLC. Designed and consumed RESTful APIs integrated with SQL databases. Worked with CI/CD pipelines and cloud environments on AWS and Azure. Collaborated with product, design, and QA teams to ensure stable and timely releases."
       },
-  
+      {
+        id: 2,
+        year: "2024 – 2025",
+        title: "Junior Full Stack Developer",
+        company: "SoftEdgeLab (PVT) LTD",
+        description: "Contributed to enterprise web application development using React and .NET. Built and maintained secure REST APIs and integrated frontend components. Participated in Agile sprints, code reviews, and sprint planning. Maintained backend technical documentation using Confluence."
+      }
+    ],
+
+    research: [
+      {
+        id: 1,
+        title: "Speech and Text Based Students' Mental Health Detection System Using Natural Language Processing with Explainable AI",
+        venue: "ICARC 2026 — 6th International Conference on Advanced Research in Computing",
+        year: "February 2026",
+        tags: ["NLP", "Explainable AI", "Mental Health", "Deep Learning"],
+        link: "https://ieeexplore.ieee.org/abstract/document/11453656/",
+        publisher: "IEEE"
+      },
+      {
+        id: 2,
+        title: "Explainable AI Powered Mental Health State Capturing Application to Support Students' Mental Wellness and Academic Stress Mitigation",
+        venue: "ARCSCU 2025 — Annual Research Conference Of SLIIT CITY UNI",
+        year: "July 2025",
+        tags: ["Explainable AI", "Mental Wellness", "Academic Stress", "Machine Learning"],
+        link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=BAQ1Dm4AAAAJ&citation_for_view=BAQ1Dm4AAAAJ:u5HHmVD_uO8C",
+        publisher: "Scholar"
+      }
     ],
 
     projects: [
       {
         id: 1,
-        title: "Banana Runner Math Game",
-        description: "Banana Runner is a 3D running game made with React, Node.js, MongoDB, and Three.js. The player runs on a road, avoiding obstacles. If they hit one, the game ends. They can earn an extra life by playing a math game using the Banana API. Players can also unlock new character colors at 50, 100, and 150 points to make the game more exciting.",
-        tech: ["React", "Three.js", "MongoDB", "Express", "Node.js"],
-        image: "/api/placeholder/400/300",
-        demoLink: "#",
-        githubLink: "https://github.com/BlackOctal/Banana-Game"
+        title: "Autism Detection & Cybercrime Analysis Using LLMs",
+        description: "Active research project leveraging Ollama-hosted LLMs (LLaMA 3.1 8B and QWEN 3 14B) for behavioural pattern detection in autism and cybercrime domains. Explores prompt engineering and model evaluation pipelines.",
+        tech: ["Python", "Ollama", "LLaMA 3.1", "QWEN 3", "NLP", "XAI"],
+        githubLink: "#"
       },
       {
         id: 2,
-        title: "Eye Site",
-        description: "Developed a MERN stack application for optical shops, allowing users to browse products, schedule appointments, and provide feedback. Admins can manage operations like products, appointments, employees, suppliers, and generate monthly reports.",
-        tech: ["React", "MongoDB", "Node.js","Express"],
-        image: "/api/placeholder/400/300",
-        demoLink: "#",
-        githubLink: "https://github.com/BlackOctal/eye-site-master"
+        title: "Sri Lanka Stock Market Prediction Platform",
+        description: "ML-powered stock prediction platform using ensemble models (Random Forest, XGBoost) to forecast Sri Lankan market trends. Features real-time data ingestion, interactive visualisation, and a Next.js frontend.",
+        tech: ["Python", "Flask", "Next.js", "Random Forest", "XGBoost", "Data Viz"],
+        githubLink: "#"
       },
       {
         id: 3,
-        title: "Event Management System",
-        description: "Designed and developed a MERN stack platform enabling seamless event creation, user booking, automated ticket generation, email notifications, and QR code-based verification. Focused on delivering a smooth user experience and scalable backend.",
-        tech: ["React", "Three.js", "MongoDB", "Express", "Node.js"],
-        image: "/api/placeholder/400/300",
-        demoLink: "#",
-        githubLink: "https://github.com/BlackOctal/Event-Master"
+        title: "iOS On-Device AI Assistant",
+        description: "A fully offline, privacy-first personal AI assistant for iOS running a local LLM via Ollama (Gemma3). No cloud dependency — all inference happens on-device with a polished natural conversation UI in SwiftUI.",
+        tech: ["Swift", "SwiftUI", "Ollama", "Gemma3", "On-Device AI"],
+        githubLink: "#"
       },
       {
         id: 4,
-        title: "AI-Powered Application for Brain Tumor Detection",
-        description: "Developed an AI-powered application that leverages advanced image processing and machine learning techniques to detect brain tumors using MRI images. Focused on enhancing diagnostic accuracy and supporting medical professionals in early tumor identification.",
-        tech: ["Python", " Machine Learning", "Image Processing", "TensorFlow/Keras"],
-        image: "/api/placeholder/400/300",
-        demoLink: "#",
+        title: "Law Case Management System",
+        description: "Full stack legal platform featuring an Azure AI-powered chatbot for natural language case queries, document management, client tracking, and secure role-based access control.",
+        tech: ["Next.js", "Node.js", "MongoDB", "AWS", "Azure AI"],
         githubLink: "#"
       },
       {
         id: 5,
-        title: "Java Based Customer Care Web Application",
-        description: "Designed and developed a MERN stack platform enabling seamless event creation, user booking, automated ticket generation, email notifications, and QR code-based verification. Focused on delivering a smooth user experience and scalable backend.",
-        tech: ["Java", "JavaScript", "JSP", "CSS", "MYSQL"],
-        image: "/api/placeholder/400/300",
-        demoLink: "#",
-        githubLink: "https://github.com/BlackOctal/Customer-Care-WebApplication"
+        title: "Clone Writer — AI Writing Assistant",
+        description: "An AI writing assistant that learns and replicates a user's personal writing style using locally hosted LLMs via Ollama. Analyses tone, vocabulary, and sentence structure to generate style-consistent content.",
+        tech: ["Next.js", "Ollama", "LLMs", "NLP", "TypeScript"],
+        githubLink: "#"
       },
       {
         id: 6,
-        title: "Issue Tracker Management System",
-        description: "Built a robust MERN stack solution for tracking and resolving departmental issues. Features include creating and managing issues, real-time commenting, report generation, and email notifications to ensure efficient issue resolution.",
-        tech: ["React", "Three.js", "MongoDB", "Express", "Node.js"],
-        image: "/api/placeholder/400/300",
-        demoLink: "#",
-        githubLink: "https://github.com/BlackOctal/Issue-Tracker-frontend"
+        title: "Travel Booking Web Application",
+        description: "End-to-end travel booking platform with real-time availability, integrated Sri Lankan payment gateway (PayHere), booking management, and a Supabase backend. Responsive and production-deployed.",
+        tech: ["Next.js", "Supabase", "Tailwind CSS", "PayHere", "TypeScript"],
+        githubLink: "#"
       }
-
     ],
+
     social: {
       github: "https://github.com/BlackOctal",
       linkedin: "https://www.linkedin.com/in/janidu-welarathna-101611238/",

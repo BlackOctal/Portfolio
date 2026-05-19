@@ -1,103 +1,169 @@
 .section {
-    position: relative;
-    z-index: 10;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 0;
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.inner {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.subtitle {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+  pointer-events: none;
+  transition: color 0.25s ease;
+  z-index: 1;
+}
+
+.textareaGroup {
+  align-items: flex-start;
+}
+
+.textareaIcon {
+  top: 0.95rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  outline: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.input::placeholder {
+  color: #4b5563;
+}
+
+.input:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.05);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.inputGroup:focus-within .inputIcon {
+  color: #a78bfa;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+  padding-top: 0.85rem;
+  line-height: 1.6;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+  color: white;
+  border-radius: 0.75rem;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sending {
+  font-style: italic;
+}
+
+.statusMessage {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.successMessage {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.errorMessage {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 2rem 1.25rem;
+    border-radius: 1rem;
   }
-  
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
+
   .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 3rem;
+    font-size: 2rem;
   }
-  
-  .form {
-    max-width: 28rem;
-    margin: 0 auto;
-  }
-  
-  .formGroup {
-    margin-bottom: 1.5rem;
-  }
-  
-  .input,
-  .textarea {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: #1f2937;
-    color: white;
-    border-radius: 0.5rem;
-    border: none;
-    outline: none;
-    transition: ring 0.3s ease;
-    font-size: 1rem;
-  }
-  
-  .input:focus,
-  .textarea:focus {
-    box-shadow: 0 0 0 2px #3b82f6;
-  }
-  
-  .textarea {
-    resize: vertical;
-    min-height: 120px;
-    font-family: inherit;
-  }
-  
-  .submitButton {
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    background-color: #8b5cf6;
-    color: white;
-    border-radius: 0.5rem;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-  }
-  
-  .submitButton:hover {
-    background-color: #44326d;
-  }
-  
-  .submitButton:disabled {
-    background-color: #60a5fa;
-    cursor: not-allowed;
-  }
-  
-  .statusMessage {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.875rem;
-  }
-  
-  .successMessage {
-    color: #10b981;
-  }
-  
-  .errorMessage {
-    color: #ef4444;
-  }
-  
-  /* Mobile responsive */
-  @media (max-width: 640px) {
-    .title {
-      font-size: 2rem;
-    }
-    
-    .form {
-      max-width: 100%;
-    }
-  }
+}
