@@ -1,28 +1,28 @@
-// api/send-email.js
-// Place this file at: /api/send-email.js in your project root (for Vercel deployment)
-// Set RESEND_API_KEY and CONTACT_TO_EMAIL in your Vercel environment variables
-
-import { Resend } from 'resend';
+const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
-  // Only allow POST
+module.exports = async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') return res.status(200).end();
+
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 
   const { name, email, phone, message } = req.body;
 
-  // Basic validation
   if (!name || !email || !message) {
     return res.status(400).json({ success: false, error: 'Missing required fields' });
   }
 
   try {
     const data = await resend.emails.send({
-      from: 'Portfolio Contact <contact@yourdomain.com>', // ← replace with your verified Resend domain
-      to: [process.env.CONTACT_TO_EMAIL || 'janiduhwelarathna@gmail.com'],
+      from: 'Portfolio Contact <contact@janiduwelarathna.online>',
+      to: ['janiduhwelarathna@gmail.com'],
       replyTo: email,
       subject: `Portfolio Contact from ${name}`,
       html: `
@@ -48,10 +48,10 @@ export default async function handler(req, res) {
           <hr style="border: none; border-top: 1px solid rgba(139,92,246,0.2); margin: 1.5rem 0;" />
 
           <h3 style="color: #9ca3af; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Message</h3>
-          <p style="color: #e5e7eb; line-height: 1.7; white-space: pre-wrap;">${message}</p>
+          <p style="color: #e5e7eb; line-height: 1.7; white-space: pre-wrap;">${name} wrote:<br/><br/>${message}</p>
 
           <hr style="border: none; border-top: 1px solid rgba(139,92,246,0.2); margin: 1.5rem 0;" />
-          <p style="font-size: 0.75rem; color: #4b5563;">Sent from janiduhwelarathna.dev portfolio contact form</p>
+          <p style="font-size: 0.75rem; color: #4b5563;">Sent from janiduwelarathna.online portfolio contact form</p>
         </div>
       `
     });
@@ -59,6 +59,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true, id: data.id });
   } catch (error) {
     console.error('Resend error:', error);
-    return res.status(500).json({ success: false, error: 'Failed to send email' });
+    return res.status(500).json({ success: false, error: error.message });
   }
-}
+};
