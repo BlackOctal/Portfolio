@@ -5,7 +5,7 @@ export const skillsData = [
     'Next JS',
     'Vue',
     'Photoshop',
-    'Azure',,
+    'Azure',
     'Microsoft Office',
     'Bootstrap',
     'C',
