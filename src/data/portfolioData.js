@@ -6,7 +6,7 @@ export const portfolioData = {
     },
     about: {
       photo: "/Janidu.png",
-      description: `I'm Janidu Himansa Welarathna — a Software Engineering graduate (BSc Hons, Second Class Upper) from the University of Bedfordshire (UK), with 1+ year of industry experience in full stack development and a growing track record in AI/ML research.
+      description: `I'm Janidu Himansa Welarathna, a Software Engineering graduate (BSc Hons, Second Class Upper) from the University of Bedfordshire (UK), with 1+ year of industry experience in full stack development and a growing track record in AI/ML research.
 
 I build production grade applications across the full stack using React, Next.js, .NET, and cloud platforms (AWS, Azure). On the research side, I specialise in Explainable AI, NLP-based mental health detection, and Large Language Models with two published papers at international computing conferences.
 
